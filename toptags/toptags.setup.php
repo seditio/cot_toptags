@@ -20,11 +20,11 @@ Requires_plugins=tags
 ==================== */
 
 /**
- * Globaltags Plugin / Setup
+ * Toptags Plugin / Setup
  *
- * @package globaltags
- * @author Vladimir Sibirov & Dmitri Beliavski
- * @copyright (c) 2012-2024 seditio.by
+ * @package toptags
+ * @author Dmitri Beliavski
+ * @copyright (c) 2025 sed.by
  */
 
 defined('COT_CODE') or die('Wrong URL');

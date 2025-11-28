@@ -6,11 +6,11 @@ Hooks=global
 ==================== */
 
 /**
- * Globaltags Plugin / Global Part
+ * Toptags Plugin / Global Part
  *
  * @package toptags
- * @author Vladimir Sibirov & Dmitri Beliavski
- * @copyright (c) 2012-2024 seditio.by
+ * @author Dmitri Beliavski
+ * @copyright (c) 2025 sed.by
  */
 
 defined('COT_CODE') or die('Wrong URL');
