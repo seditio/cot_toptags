@@ -14,6 +14,8 @@ define('SEDBY_TOPTAGS_REALM', '[SEDBY] Toptags');
 
 function sedby_toptags($tpl = 'toptags', $items = 10, $tt_cache = '', $tt_ttl = 0) {
 
+  $enableCache = false;
+
   if (Cot::$cache && !empty($tt_cache) && ((int)$tt_ttl > 0)) {
     $enableCache = true;
     $cache_name = str_replace(' ', '_', $tt_cache);
@@ -23,16 +25,10 @@ function sedby_toptags($tpl = 'toptags', $items = 10, $tt_cache = '', $tt_ttl = 
     $output = Cot::$cache->db->get($cache_name, SEDBY_TOPTAGS_REALM);
   } else {
 
-    global $db_tag_references;
-
     $t = new XTemplate(cot_tplfile($tpl, 'plug'));
 
-    $query = "SELECT *, COUNT(tag) AS tagQTY
-    FROM $db_tag_references
-    GROUP BY tag, tag_area
-    ORDER BY tagQTY DESC
-    LIMIT $items";
-
+    $db_tag_references = Cot::$db->tag_references;
+    $query = "SELECT tag, tag_area, COUNT(tag) AS tagQTY FROM $db_tag_references GROUP BY tag, tag_area ORDER BY tagQTY DESC LIMIT $items";
     $res = Cot::$db->query($query);
     $jj = 1;
 
